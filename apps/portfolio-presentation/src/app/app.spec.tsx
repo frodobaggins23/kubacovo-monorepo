@@ -21,7 +21,7 @@ describe('App', () => {
     );
     expect(
       getAllByText(
-        new RegExp('Welcome @kubacovo-monorepo/kubacovo-monorepo', 'gi')
+        new RegExp('Welcome @kubacovo-monorepo/portfolio-presentation', 'gi')
       ).length > 0
     ).toBeTruthy();
   });

@@ -5,7 +5,7 @@ import { Route, Routes, Link } from 'react-router-dom';
 export function App() {
   return (
     <div>
-      <NxWelcome title="@kubacovo-monorepo/kubacovo-monorepo" />
+      <NxWelcome title="@kubacovo-monorepo/portfolio-presentation" />
 
       {/* START: routes */}
       {/* These routes and navigation have been generated for you */}

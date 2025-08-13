@@ -6,7 +6,11 @@
       "WebFetch(domain:github.com)",
       "Bash(mkdir:*)",
       "WebFetch(domain:docs.anthropic.com)",
-      "Bash(nx serve:*)"
+      "Bash(nx serve:*)",
+      "Bash(npx nx show project:*)",
+      "Bash(git add:*)",
+      "Bash(npx nx serve:*)",
+      "Bash(npx nx:*)"
     ],
     "deny": []
   }
