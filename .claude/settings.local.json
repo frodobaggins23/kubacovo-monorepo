@@ -10,7 +10,8 @@
       "Bash(npx nx show project:*)",
       "Bash(git add:*)",
       "Bash(npx nx serve:*)",
-      "Bash(npx nx:*)"
+      "Bash(npx nx:*)",
+      "Bash(rm:*)"
     ],
     "deny": []
   }
