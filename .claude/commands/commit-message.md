@@ -1,6 +1,7 @@
 # Create commit message
 
 ## General rules
+
 - Propose commit message for staged git files.
 - If there are no staged files, add all touched files to staging (`git add -A`)
 - If there are staged files, work just with them, leave the other touched files out.
@@ -10,7 +11,7 @@
 <type>: <description>
 ```
 
-- The commit message must be max 150 characters long. 
+- The commit message must be max 150 characters long.
 - The <description> part starts always with capital letter.
 - Never use commit message body.
 - Never use commit message footer.
@@ -26,11 +27,8 @@
 
 - "Add Calculator service" (not following conventional commits methodology)
 - "test: unit tests for Calculator service" (description not starting with capital letter)
-- "feat: Add Calculator Service
-    - added new buttons
-    - refactored utils
-    - introduced dark mode
-" (message must not include a body)
+- "feat: Add Calculator Service - added new buttons - refactored utils - introduced dark mode
+  " (message must not include a body)
 - "refactor: Added some services, refactored dark mode and introduced some very cool dependency injection mechanisms, including integration with Astra" (too long commit message)
 - "feat: Add Calculator Service
 

@@ -7,6 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is an Nx monorepo designed to host multiple React applications, shared libraries, and a design system.
 
 ### Core Development Commands
+
 ```bash
 # Start development server for any app
 npx nx serve <app-name>
@@ -30,6 +31,7 @@ npx nx preview <app-name>
 ```
 
 ### Project Structure Commands
+
 ```bash
 # Show available targets for any project
 npx nx show project <project-name>
@@ -53,6 +55,7 @@ npx nx graph
 ## Architecture Overview
 
 ### Monorepo Structure
+
 - **Nx monorepo** with TypeScript configuration
 - **Multiple React applications** in `apps/` directory
 - **Shared libraries** for business logic and utilities
@@ -60,6 +63,7 @@ npx nx graph
 - **Workspace-level dependencies** managed in root `package.json`
 
 ### Technology Stack
+
 - **React 19** with TypeScript
 - **React Router DOM** for routing
 - **Vite** for build tooling and dev server
@@ -68,12 +72,14 @@ npx nx graph
 - **ESLint** with TypeScript rules for linting
 
 ### Key Configuration Files
+
 - `nx.json`: Nx workspace configuration with plugins for React, Vite, ESLint, and TypeScript
 - `vite.config.ts`: Vite configuration with React plugin and test setup (per app)
 - `tsconfig.base.json`: Base TypeScript configuration for the monorepo
 - `vitest.workspace.ts`: Vitest workspace configuration
 
 ### Planned Architecture
+
 - **Apps**: Multiple React applications consuming shared libraries
 - **Libs**: Business logic, utilities, and data management libraries
 - **Design System**: Shared UI component library for consistent styling across apps
@@ -81,6 +87,7 @@ npx nx graph
 - **Styling**: TailwindCSS configured consistently across all projects
 
 ### Development Notes
+
 - Applications run on different ports (4200, 4201, etc.) in development mode
 - Preview builds use ports 4300+
 - Tests use Vitest with jsdom environment and coverage reporting
