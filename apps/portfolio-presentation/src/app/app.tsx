@@ -1,3 +1,5 @@
+import {Button} from '@kubacovo-monorepo/ui-components'
+
 export function App() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -8,6 +10,7 @@ export function App() {
         </div>
       </header>
 
+      <Button>Magick button</Button>
       <main className="container mx-auto px-6 py-12">
         <section className="mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">About Me</h2>

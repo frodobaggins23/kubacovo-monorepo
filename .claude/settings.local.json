@@ -14,5 +14,6 @@
       "Bash(rm:*)"
     ],
     "deny": []
-  }
+  },
+  "outputStyle": "Learning"
 }
