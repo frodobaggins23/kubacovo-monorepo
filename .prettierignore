@@ -3,3 +3,19 @@
 /coverage
 /.nx/cache
 /.nx/workspace-data
+
+# Dependencies
+node_modules/
+
+# Generated and minified files
+*.min.js
+*.min.css
+*.map
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build configs that shouldn't be formatted
+rollup.config.cjs
