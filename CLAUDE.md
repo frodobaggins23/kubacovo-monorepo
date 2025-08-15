@@ -28,6 +28,11 @@ npx nx lint <app-name>
 
 # Preview production build
 npx nx preview <app-name>
+
+# Storybook for UI components
+npx nx storybook @kubacovo-monorepo/ui-components
+npx nx build-storybook @kubacovo-monorepo/ui-components
+npx nx static-storybook @kubacovo-monorepo/ui-components
 ```
 
 ### Project Structure Commands
