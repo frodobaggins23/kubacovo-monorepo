@@ -10,7 +10,23 @@ export function App() {
         </div>
       </header>
 
-      <Button>Magick button</Button>
+      {/* UI Components Test */}
+      <section className='container mx-auto px-6 py-8'>
+        <div className='bg-white rounded-lg shadow-sm p-6 mb-8'>
+          <h2 className='text-xl font-bold text-gray-900 mb-4'>Button Variants</h2>
+          <div className='flex flex-wrap gap-3 mb-4'>
+            <Button variant="primary">Primary</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="danger">Danger</Button>
+            <Button variant="outline">Outline</Button>
+          </div>
+          <div className='flex flex-wrap gap-3 items-center'>
+            <Button size="sm">Small</Button>
+            <Button size="md">Medium</Button>
+            <Button size="lg">Large</Button>
+          </div>
+        </div>
+      </section>
       <main className='container mx-auto px-6 py-12'>
         <section className='mb-16'>
           <h2 className='text-3xl font-bold text-gray-900 mb-6'>About Me</h2>

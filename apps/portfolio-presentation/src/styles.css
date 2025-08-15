@@ -1,4 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* You can add global styles to this file, and also import other style files */
+
+/* Portfolio App Custom Theme */
+:root {
+  /* Override UI Components theme with portfolio brand colors */
+  --ui-primary: 34 197 94; /* green-500 - portfolio brand green */
+  --ui-primary-hover: 22 163 74; /* green-600 */
+  --ui-danger: 168 85 247; /* purple-500 - unique accent */
+  --ui-danger-hover: 147 51 234; /* purple-600 */
+  --ui-secondary: 71 85 105; /* slate-600 - professional gray */
+  --ui-secondary-hover: 51 65 85; /* slate-700 */
+}

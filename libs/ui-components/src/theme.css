@@ -1,0 +1,59 @@
+/* UI Components Theme - Default Variables and Pre-built Classes */
+
+/* Default theme variables - override these in consuming apps */
+:root {
+  /* Primary colors - professional blue palette */
+  --ui-primary: 59 130 246;        /* blue-500 - main primary */
+  --ui-primary-hover: 37 99 235;   /* blue-600 - hover state */
+  
+  /* Secondary colors - neutral gray palette */
+  --ui-secondary: 107 114 128;     /* gray-500 - balanced gray */
+  --ui-secondary-hover: 75 85 99;  /* gray-600 - hover state */
+  
+  /* Semantic colors */
+  --ui-danger: 239 68 68;          /* red-500 - destructive actions */
+  --ui-danger-hover: 220 38 38;    /* red-600 - hover state */
+  
+  /* Surface colors */
+  --ui-background: 255 255 255;    /* white - main background */
+  --ui-surface: 249 250 251;       /* gray-50 - elevated surfaces */
+  --ui-border: 229 231 235;        /* gray-200 - borders */
+  
+  /* Text colors */
+  --ui-text-primary: 17 24 39;     /* gray-900 - primary text */
+  --ui-text-secondary: 107 114 128; /* gray-500 - secondary text */
+}
+
+/* Pre-built component theme classes */
+
+/* Background colors */
+.bg-ui-primary { background-color: rgb(var(--ui-primary)); }
+.bg-ui-primary-hover { background-color: rgb(var(--ui-primary-hover)); }
+.bg-ui-primary\/20 { background-color: rgb(var(--ui-primary) / 0.2); }
+.bg-ui-primary\/30 { background-color: rgb(var(--ui-primary) / 0.3); }
+
+.bg-ui-secondary { background-color: rgb(var(--ui-secondary)); }
+.bg-ui-secondary-hover { background-color: rgb(var(--ui-secondary-hover)); }
+.bg-ui-secondary\/20 { background-color: rgb(var(--ui-secondary) / 0.2); }
+.bg-ui-secondary\/30 { background-color: rgb(var(--ui-secondary) / 0.3); }
+
+.bg-ui-danger { background-color: rgb(var(--ui-danger)); }
+.bg-ui-danger-hover { background-color: rgb(var(--ui-danger-hover)); }
+.bg-ui-danger\/20 { background-color: rgb(var(--ui-danger) / 0.2); }
+.bg-ui-danger\/30 { background-color: rgb(var(--ui-danger) / 0.3); }
+
+.bg-ui-background { background-color: rgb(var(--ui-background)); }
+.bg-ui-surface { background-color: rgb(var(--ui-surface)); }
+
+/* Text colors */
+.text-ui-text-primary { color: rgb(var(--ui-text-primary)); }
+.text-ui-text-secondary { color: rgb(var(--ui-text-secondary)); }
+
+/* Border colors */
+.border-ui-border { border-color: rgb(var(--ui-border)); }
+.border-ui-primary { border-color: rgb(var(--ui-primary)); }
+
+/* Ring colors */
+.ring-ui-primary\/30 { --tw-ring-color: rgb(var(--ui-primary) / 0.3); }
+.ring-ui-secondary\/30 { --tw-ring-color: rgb(var(--ui-secondary) / 0.3); }
+.ring-ui-danger\/30 { --tw-ring-color: rgb(var(--ui-danger) / 0.3); }
