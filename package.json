@@ -5,7 +5,8 @@
   "scripts": {
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "format:staged": "prettier --write --list-different"
+    "format:staged": "git diff --cached --name-only --diff-filter=ACMR | grep -E '\\.(js|jsx|ts|tsx|json|md|css|scss)$' | xargs -r prettier --write --list-different",
+    "ts:staged": "NX_TUI=false npx nx affected --target=typecheck --base=HEAD --verbose --nx-bail=false"
   },
   "private": true,
   "dependencies": {
