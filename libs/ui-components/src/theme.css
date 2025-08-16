@@ -1,59 +1,163 @@
-/* UI Components Theme - Default Variables and Pre-built Classes */
+/* UI Components Theme - Single Source Color Definitions */
 
-/* Default theme variables - override these in consuming apps */
 :root {
-  /* Primary colors - professional blue palette */
-  --ui-primary: 59 130 246;        /* blue-500 - main primary */
-  --ui-primary-hover: 37 99 235;   /* blue-600 - hover state */
-  
-  /* Secondary colors - neutral gray palette */
-  --ui-secondary: 107 114 128;     /* gray-500 - balanced gray */
-  --ui-secondary-hover: 75 85 99;  /* gray-600 - hover state */
-  
-  /* Semantic colors */
-  --ui-danger: 239 68 68;          /* red-500 - destructive actions */
-  --ui-danger-hover: 220 38 38;    /* red-600 - hover state */
-  
-  /* Surface colors */
-  --ui-background: 255 255 255;    /* white - main background */
-  --ui-surface: 249 250 251;       /* gray-50 - elevated surfaces */
-  --ui-border: 229 231 235;        /* gray-200 - borders */
-  
-  /* Text colors */
-  --ui-text-primary: 17 24 39;     /* gray-900 - primary text */
-  --ui-text-secondary: 107 114 128; /* gray-500 - secondary text */
+  /* Single source color definitions - maintain these RGB values here only */
+  --color-white: 255 255 255;
+  --color-gray-50: 249 250 251;
+  --color-gray-200: 229 231 235;
+  --color-gray-300: 209 213 219;
+  --color-gray-400: 156 163 175;
+  --color-gray-500: 107 114 128;
+  --color-gray-600: 75 85 99;
+  --color-gray-800: 31 41 55;
+  --color-gray-900: 17 24 39;
+  --color-blue-500: 59 130 246;
+  --color-blue-600: 37 99 235;
+  --color-red-500: 239 68 68;
+  --color-red-600: 220 38 38;
+
+  /* Static theme colors - same in all themes */
+  --ui-primary: var(--color-blue-500);
+  --ui-primary-hover: var(--color-blue-600);
+  --ui-danger: var(--color-red-500);
+  --ui-danger-hover: var(--color-red-600);
+
+  /* Theme-dependent colors - light theme default */
+  --ui-background: var(--color-white);
+  --ui-surface: var(--color-gray-50);
+  --ui-border: var(--color-gray-200);
+  --ui-text-primary: var(--color-gray-900);
+  --ui-text-secondary: var(--color-gray-500);
+  --ui-secondary: var(--color-gray-500);
+  --ui-secondary-hover: var(--color-gray-600);
+}
+
+/* Dark theme color assignments - defined once */
+.theme-dark {
+  --ui-background: var(--color-gray-900);
+  --ui-surface: var(--color-gray-800);
+  --ui-border: var(--color-gray-600);
+  --ui-text-primary: var(--color-gray-50);
+  --ui-text-secondary: var(--color-gray-400);
+  --ui-secondary: var(--color-gray-400);
+  --ui-secondary-hover: var(--color-gray-300);
+}
+
+/* Apply dark theme via system preference (unless manually overridden to light) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --ui-background: var(--color-gray-900);
+    --ui-surface: var(--color-gray-800);
+    --ui-border: var(--color-gray-600);
+    --ui-text-primary: var(--color-gray-50);
+    --ui-text-secondary: var(--color-gray-400);
+    --ui-secondary: var(--color-gray-400);
+    --ui-secondary-hover: var(--color-gray-300);
+  }
+}
+
+/* Manual theme overrides */
+[data-theme='dark'] {
+  --ui-background: var(--color-gray-900);
+  --ui-surface: var(--color-gray-800);
+  --ui-border: var(--color-gray-600);
+  --ui-text-primary: var(--color-gray-50);
+  --ui-text-secondary: var(--color-gray-400);
+  --ui-secondary: var(--color-gray-400);
+  --ui-secondary-hover: var(--color-gray-300);
+}
+
+[data-theme='light'] {
+  --ui-background: var(--color-white);
+  --ui-surface: var(--color-gray-50);
+  --ui-border: var(--color-gray-200);
+  --ui-text-primary: var(--color-gray-900);
+  --ui-text-secondary: var(--color-gray-500);
+  --ui-secondary: var(--color-gray-500);
+  --ui-secondary-hover: var(--color-gray-600);
 }
 
 /* Pre-built component theme classes */
 
 /* Background colors */
-.bg-ui-primary { background-color: rgb(var(--ui-primary)); }
-.bg-ui-primary-hover { background-color: rgb(var(--ui-primary-hover)); }
-.bg-ui-primary\/20 { background-color: rgb(var(--ui-primary) / 0.2); }
-.bg-ui-primary\/30 { background-color: rgb(var(--ui-primary) / 0.3); }
+.bg-ui-primary {
+  background-color: rgb(var(--ui-primary));
+}
+.bg-ui-primary-hover {
+  background-color: rgb(var(--ui-primary-hover));
+}
+.bg-ui-primary\/20 {
+  background-color: rgb(var(--ui-primary) / 0.2);
+}
+.bg-ui-primary\/30 {
+  background-color: rgb(var(--ui-primary) / 0.3);
+}
 
-.bg-ui-secondary { background-color: rgb(var(--ui-secondary)); }
-.bg-ui-secondary-hover { background-color: rgb(var(--ui-secondary-hover)); }
-.bg-ui-secondary\/20 { background-color: rgb(var(--ui-secondary) / 0.2); }
-.bg-ui-secondary\/30 { background-color: rgb(var(--ui-secondary) / 0.3); }
+.bg-ui-secondary {
+  background-color: rgb(var(--ui-secondary));
+}
+.bg-ui-secondary-hover {
+  background-color: rgb(var(--ui-secondary-hover));
+}
+.bg-ui-secondary\/20 {
+  background-color: rgb(var(--ui-secondary) / 0.2);
+}
+.bg-ui-secondary\/30 {
+  background-color: rgb(var(--ui-secondary) / 0.3);
+}
 
-.bg-ui-danger { background-color: rgb(var(--ui-danger)); }
-.bg-ui-danger-hover { background-color: rgb(var(--ui-danger-hover)); }
-.bg-ui-danger\/20 { background-color: rgb(var(--ui-danger) / 0.2); }
-.bg-ui-danger\/30 { background-color: rgb(var(--ui-danger) / 0.3); }
+.bg-ui-danger {
+  background-color: rgb(var(--ui-danger));
+}
+.bg-ui-danger-hover {
+  background-color: rgb(var(--ui-danger-hover));
+}
+.bg-ui-danger\/20 {
+  background-color: rgb(var(--ui-danger) / 0.2);
+}
+.bg-ui-danger\/30 {
+  background-color: rgb(var(--ui-danger) / 0.3);
+}
 
-.bg-ui-background { background-color: rgb(var(--ui-background)); }
-.bg-ui-surface { background-color: rgb(var(--ui-surface)); }
+.bg-ui-background {
+  background-color: rgb(var(--ui-background));
+}
+.bg-ui-surface {
+  background-color: rgb(var(--ui-surface));
+}
 
 /* Text colors */
-.text-ui-text-primary { color: rgb(var(--ui-text-primary)); }
-.text-ui-text-secondary { color: rgb(var(--ui-text-secondary)); }
+.text-ui-text-primary {
+  color: rgb(var(--ui-text-primary));
+}
+.text-ui-text-secondary {
+  color: rgb(var(--ui-text-secondary));
+}
 
 /* Border colors */
-.border-ui-border { border-color: rgb(var(--ui-border)); }
-.border-ui-primary { border-color: rgb(var(--ui-primary)); }
+.border-ui-border {
+  border-color: rgb(var(--ui-border));
+}
+.border-ui-primary {
+  border-color: rgb(var(--ui-primary));
+}
 
 /* Ring colors */
-.ring-ui-primary\/30 { --tw-ring-color: rgb(var(--ui-primary) / 0.3); }
-.ring-ui-secondary\/30 { --tw-ring-color: rgb(var(--ui-secondary) / 0.3); }
-.ring-ui-danger\/30 { --tw-ring-color: rgb(var(--ui-danger) / 0.3); }
+.ring-ui-primary\/30 {
+  --tw-ring-color: rgb(var(--ui-primary) / 0.3);
+}
+.ring-ui-secondary\/30 {
+  --tw-ring-color: rgb(var(--ui-secondary) / 0.3);
+}
+.ring-ui-danger\/30 {
+  --tw-ring-color: rgb(var(--ui-danger) / 0.3);
+}
+
+/* Theme transition animations - respects prefers-reduced-motion */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+}

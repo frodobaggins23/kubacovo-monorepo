@@ -10,11 +10,24 @@ module.exports = withNx(
     compiler: 'babel',
     external: ['react', 'react-dom', 'react/jsx-runtime'],
     format: ['esm'],
-    assets: [{ input: '.', output: '.', glob: 'README.md' }],
+    assets: [
+      { input: '.', output: '.', glob: 'README.md' },
+      { input: './src', output: '.', glob: '**/*.css' },
+    ],
   },
   {
     // Provide additional rollup configuration here. See: https://rollupjs.org/configuration-options
     plugins: [
+      // Plugin to handle CSS imports (ignore them during build)
+      {
+        name: 'ignore-css-imports',
+        resolveId(id) {
+          if (id.endsWith('.css')) {
+            return { id, external: true };
+          }
+          return null;
+        },
+      },
       svg({
         svgo: false,
         titleProp: true,
