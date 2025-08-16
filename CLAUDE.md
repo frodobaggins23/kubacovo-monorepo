@@ -116,12 +116,17 @@ npx nx graph
 - **Collaborative problem-solving**: Treat as co-architecture sessions, not teaching moments
 - **Direct communication**: Be clear about limitations, alternatives, and implications
 - **Use "ultrathink"**: Apply deep technical analysis when explicitly requested
+- **Root cause analysis**: When encountering build/config errors, prioritize identifying underlying configuration issues rather than implementing workarounds
+- **User-guided correction**: When user feedback indicates wrong direction, quickly pivot to their preferred approach rather than defending initial solutions
+- **Configuration over code**: Prefer fixing tool configurations (tsconfig, rollup, nx) rather than adding workaround code
 
 #### ❌ Less Effective Approaches
 - **Feature-heavy initial proposals**: Avoid complex solutions with multiple abstractions upfront
 - **Prescriptive solutions**: Don't assume one approach without explaining alternatives
 - **Theoretical explanations**: Prefer hands-on validation over conceptual discussions
 - **Over-complexity**: Resist adding layers when simple solutions work
+- **Working around symptoms**: Don't patch issues with code when the real problem is configuration (TypeScript settings, build tools)
+- **Complex script chaining**: Avoid overly complex npm scripts when simpler, tool-native approaches exist
 
 ### Technical Collaboration Style
 
