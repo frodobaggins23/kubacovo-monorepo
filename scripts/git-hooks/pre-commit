@@ -1,0 +1,24 @@
+#!/bin/sh
+# Pre-commit hook that runs prettier formatting and TypeScript checks
+# Uses npm scripts: format:staged and ts:staged
+
+set -e
+
+echo "🎨 Running prettier on staged files..."
+
+# Capture staged files before formatting (using files:staged alias)
+STAGED_FILES=$(npm run files:staged --silent || true)
+
+# Run your existing format script
+npm run format:staged
+
+# Re-stage any files that were formatted
+if [ -n "$STAGED_FILES" ]; then
+  echo "$STAGED_FILES" | xargs -r git add
+  echo "✅ Re-staged formatted files"
+fi
+
+echo "🔍 Running TypeScript checks on affected projects..."
+npm run ts:staged
+
+echo "✅ Pre-commit checks passed!"
