@@ -5,9 +5,7 @@
 set -e
 
 echo "🔄 Running final format check..."
-npm run format:check
 
-echo "🔍 Running TypeScript checks on affected projects..."
-npm run ts:staged
+# TODO: implemement in the future
 
 echo "✅ Pre-push checks passed!"

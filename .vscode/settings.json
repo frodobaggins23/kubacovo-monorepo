@@ -2,10 +2,10 @@
   // Format on save
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
-  
+
   // Set Prettier as the default formatter
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  
+
   // File-specific formatters
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -37,7 +37,7 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  
+
   // ESLint integration
   "eslint.workingDirectories": ["apps/*/", "libs/*/"],
   "eslint.validate": [
@@ -46,16 +46,16 @@
     "typescript",
     "typescriptreact"
   ],
-  
+
   // Auto-fix ESLint issues on save
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  
+
   // TypeScript preferences
   "typescript.preferences.importModuleSpecifier": "relative",
   "typescript.suggest.autoImports": true,
-  
+
   // File associations
   "files.associations": {
     "*.mjs": "javascript"

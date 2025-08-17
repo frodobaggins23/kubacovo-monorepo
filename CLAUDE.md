@@ -111,6 +111,7 @@ npx nx graph
 ### Effective Communication Patterns
 
 #### ✅ Preferred Approaches
+
 - **Start minimal, iterate**: Propose simple solutions first, build complexity based on feedback
 - **Explain reasoning**: Always provide the "why" behind technical decisions and trade-offs
 - **Collaborative problem-solving**: Treat as co-architecture sessions, not teaching moments
@@ -121,6 +122,7 @@ npx nx graph
 - **Configuration over code**: Prefer fixing tool configurations (tsconfig, rollup, nx) rather than adding workaround code
 
 #### ❌ Less Effective Approaches
+
 - **Feature-heavy initial proposals**: Avoid complex solutions with multiple abstractions upfront
 - **Prescriptive solutions**: Don't assume one approach without explaining alternatives
 - **Theoretical explanations**: Prefer hands-on validation over conceptual discussions
