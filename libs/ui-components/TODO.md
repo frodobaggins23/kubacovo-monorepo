@@ -4,10 +4,10 @@
 
 ### Foundation First
 
-- [ ] Create component folder structure (primitives/, layout/, forms/, etc.)
-- [ ] Move existing Button to `primitives/` folder
-- [ ] Document Tailwind + theme integration patterns
-- [ ] Create component design patterns guide
+- [x] Create component folder structure (primitives/, layout/, forms/, etc.)
+- [x] Move existing Button to `primitives/` folder
+- [x] Document Tailwind + theme integration patterns
+- [x] Create component design patterns guide
 - [ ] Set up component templates and generators
 
 ## 🎨 Design System Foundation
@@ -28,7 +28,7 @@
 - [ ] Create `feedback/` folder (Alert, Toast, Progress)
 - [ ] Create `navigation/` folder (Menu, Tabs, Breadcrumb)
 - [ ] Create `data-display/` folder (Table, Card, List)
-- [ ] Move existing Button to `primitives/`
+- [x] Move existing Button to `primitives/`
 
 ## 🧩 Core Components (Complexity Order: Simple → Complex)
 

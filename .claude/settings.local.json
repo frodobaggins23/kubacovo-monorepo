@@ -12,6 +12,7 @@
       "Bash(npx nx serve:*)",
       "Bash(npx nx:*)",
       "Bash(rm:*)",
+      "Bash(mv:*)",
       "WebFetch(domain:storybook.js.org)",
       "WebFetch(domain:stackoverflow.com)"
     ],
