@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "container:start": "sudo docker compose up -d ssh-dev",
+    "container:stop": "sudo docker compose stop ssh-dev",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "files:staged": "git diff --cached --name-only --diff-filter=ACMR | grep -E '\\.(js|jsx|ts|tsx|json|md|css|scss)$'",

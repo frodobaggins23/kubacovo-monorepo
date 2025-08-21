@@ -1,0 +1,16 @@
+services:
+  # SSH-enabled development container for VS Code Remote-SSH
+  ssh-dev:
+    build:
+      context: .
+    ports:
+      - '2222:22'    # SSH port
+      - '3001:3001'  # Portfolio app
+      - '6006:6006'  # Storybook
+      - '4200:4200'  # Nx dev server
+      - '4300:4300'  # Preview builds
+    command: ['sh', '-c', 'sudo service ssh start && tail -f /dev/null']
+    stdin_open: true
+    tty: true
+    environment:
+      - NODE_ENV=development

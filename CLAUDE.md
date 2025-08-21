@@ -100,6 +100,37 @@ npx nx graph
 - TypeScript is configured with strict mode and modern ES2022 target
 - Libraries should be designed for reusability across multiple applications
 
+## Docker Development Environment
+
+This repository includes a containerized development environment for consistent development across different machines.
+
+### Quick Start with Docker
+
+```bash
+# Set up and start the development container
+mkdir -p certs
+cp ~/.ssh/id_ed25519 certs/
+cp ~/.ssh/id_ed25519.pub certs/
+cp ~/.ssh/kubacovo-monorepo-docker-ssh.pub certs/
+
+sudo docker compose build ssh-dev
+rm -rf certs/  # Clean up after build
+sudo docker compose up -d ssh-dev
+
+# Connect via VS Code Remote-SSH to: docker-dev (or node@localhost:2222)
+# Working directory: /home/node/kubacovo-monorepo
+```
+
+### Container Features
+
+- **Git-based**: Repository automatically cloned with your credentials
+- **SSH access**: Connect via VS Code Remote-SSH extension
+- **Pre-installed tools**: Node.js, Claude Code CLI, development dependencies
+- **Port forwarding**: Development servers accessible on host machine
+- **Persistent environment**: Git changes persist between container starts
+
+**📖 Full Documentation**: See [CONTAINER_README.md](./CONTAINER_README.md) for complete setup instructions, troubleshooting, and usage details.
+
 ## Communication Style
 
 ### Core Principles

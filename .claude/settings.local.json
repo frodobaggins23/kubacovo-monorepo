@@ -12,7 +12,8 @@
       "Bash(npx nx serve:*)",
       "Bash(npx nx:*)",
       "Bash(rm:*)",
-      "WebFetch(domain:storybook.js.org)"
+      "WebFetch(domain:storybook.js.org)",
+      "WebFetch(domain:stackoverflow.com)"
     ],
     "deny": []
   },
