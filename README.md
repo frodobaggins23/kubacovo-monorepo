@@ -1,81 +1,189 @@
-# KubacovoMonorepo
+# Kubacovo Monorepo
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+A modern, scalable monorepo built with [Nx](https://nx.dev) for hosting multiple React applications and shared libraries. This workspace is designed to provide a robust foundation for building and maintaining multiple frontend projects with shared components and utilities.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+## 🚀 Features
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+- **Modern React 19** with TypeScript support
+- **Nx Workspace** for efficient monorepo management
+- **Vite** for fast development and building
+- **TailwindCSS** for consistent styling across projects
+- **Storybook** for component development and documentation
+- **Docker** support for containerized development
+- **ESLint + Prettier** for code quality and formatting
+- **Vitest** for comprehensive testing
 
-## Finish your CI setup
+## 📁 Project Structure
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/l3OQH6skFe)
-
-## Run tasks
-
-To run the dev server for your app, use:
-
-```sh
-npx nx serve kubacovo-monorepo
+```
+kubacovo-monorepo/
+├── apps/
+│   └── portfolio-presentation/     # Portfolio presentation application
+├── libs/
+│   └── ui-components/             # Shared UI component library
+├── scripts/                        # Build and utility scripts
+├── .github/                        # CI/CD workflows
+└── docker-compose.yml             # Development container setup
 ```
 
-To create a production bundle:
+## 🛠️ Prerequisites
 
-```sh
-npx nx build kubacovo-monorepo
+- **Node.js** 22
+- **npm** or **yarn**
+- **Docker** (optional, for containerized development)
+
+## 🚀 Quick Start
+
+### 1. Install Dependencies
+
+```bash
+npm install
 ```
 
-To see all available targets to run for a project, run:
+### 2. Start Development Server
 
-```sh
-npx nx show project kubacovo-monorepo
+```bash
+# Start the portfolio presentation app
+npx nx serve portfolio-presentation
+
+# Or use the dev command
+npx nx dev portfolio-presentation
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+### 3. Build for Production
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/react:app demo
+```bash
+npx nx build portfolio-presentation
 ```
 
-To generate a new library, use:
+## 📱 Available Applications
 
-```sh
-npx nx g @nx/react:lib mylib
+### Portfolio Presentation (`apps/portfolio-presentation`)
+
+A React application showcasing portfolio content with modern UI components.
+
+- **Dev Server**: http://localhost:4200
+- **Preview Build**: http://localhost:4300
+
+## 🧩 Shared Libraries
+
+### UI Components (`libs/ui-components`)
+
+A comprehensive design system library with reusable React components.
+
+- **Storybook**: http://localhost:6006
+- **Build**: `npx nx build ui-components`
+
+## 🐳 Docker Development
+
+For containerized development with VS Code Remote-SSH:
+
+```bash
+# Start development container
+npm run container:start
+
+# Stop container
+npm run container:stop
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+The container exposes:
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- **SSH**: Port 2222
+- **Portfolio App**: Port 3001
+- **Storybook**: Port 6006
+- **Nx Dev Server**: Port 4200
+- **Preview Builds**: Port 4300
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## 🧪 Development Commands
 
-## Install Nx Console
+### Core Commands
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+```bash
+# Development
+npx nx serve <app-name>          # Start dev server
+npx nx dev <app-name>            # Alternative dev command
+npx nx preview <app-name>        # Preview production build
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+# Building
+npx nx build <app-name>          # Production build
+npx nx build ui-components       # Build UI library
 
-## Useful links
+# Testing
+npx nx test <app-name>           # Run tests with Vitest
+npx nx test ui-components        # Test UI components
 
-Learn more:
+# Code Quality
+npx nx lint <app-name>           # ESLint checking
+npx nx typecheck <app-name>      # TypeScript checking
 
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+# Storybook
+npx nx storybook ui-components   # Start Storybook
+npx nx build-storybook ui-components  # Build Storybook
+```
 
-And join the Nx community:
+### Utility Commands
 
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+```bash
+# Code Formatting
+npm run format                    # Format all files
+npm run format:check             # Check formatting
+npm run format:staged            # Format staged files
+
+# Project Management
+npx nx graph                     # Visualize dependencies
+npx nx show project <name>       # Show project details
+npx nx list                      # List all generators
+```
+
+## 🏗️ Adding New Projects
+
+### Generate New Application
+
+```bash
+npx nx g @nx/react:app <app-name>
+```
+
+### Generate New Library
+
+```bash
+npx nx g @nx/react:lib <lib-name>
+```
+
+### Generate New Component
+
+```bash
+npx nx g @nx/react:component <ComponentName> --project=<project-name>
+```
+
+## 🔧 Technology Stack
+
+- **Framework**: React 19 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: TailwindCSS
+- **Testing**: Vitest + jsdom
+- **Linting**: ESLint + Prettier
+- **Monorepo**: Nx Workspace
+- **Package Manager**: npm
+- **Containerization**: Docker
+
+## 📚 Additional Resources
+
+- **Nx Documentation**: [https://nx.dev](https://nx.dev)
+- **React Documentation**: [https://react.dev](https://react.dev)
+- **TailwindCSS**: [https://tailwindcss.com](https://tailwindcss.com)
+- **Vite**: [https://vitejs.dev](https://vitejs.dev)
+
+## 🤝 Contributing
+
+1. Install dependencies: `npm install`
+2. Set up git hooks: `npm run postinstall`
+3. Follow the established code style and linting rules
+4. Use the provided generators for new components and projects
+
+## 📄 License
+
+MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Built with ❤️ using [Nx](https://nx.dev) and modern web technologies.
