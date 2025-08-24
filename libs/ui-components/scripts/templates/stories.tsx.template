@@ -1,0 +1,87 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { {{ComponentName}} } from './{{ComponentName}}';
+import { StoryWrapper } from '../../utils/StoryWrapper';
+import { ThemeShowcaseWrapper } from '../../utils/ThemeShowcase';
+
+const meta: Meta<typeof {{ComponentName}}> = {
+  title: '{{categoryTitle}}/{{ComponentName}}',
+  component: {{ComponentName}},
+  parameters: {
+    layout: 'centered',
+  },
+  tags: ['autodocs'],
+  argTypes: {
+    size: {
+      control: { type: 'select' },
+      options: ['sm', 'md', 'lg'],
+    },
+    variant: {
+      control: { type: 'select' },
+      options: [{{variantOptions}}],
+    },
+    disabled: {
+      control: { type: 'boolean' },
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  render: (args) => (
+    <StoryWrapper>
+      <{{ComponentName}} {...args} />
+    </StoryWrapper>
+  ),
+  args: {
+    variant: '{{defaultVariant}}',
+    children: '{{sampleContent}}',
+  },
+};
+
+// All variants showcase
+export const AllVariants: Story = {
+  render: () => (
+    <StoryWrapper>
+      <div className="flex flex-col gap-4">
+        <div className="flex gap-2 items-center">
+          {{allVariantsRender}}
+        </div>
+        <div className="flex gap-2 items-center">
+          <{{ComponentName}} size="sm">{{sizeSmallContent}}</{{ComponentName}}>
+          <{{ComponentName}} size="md">{{sizeMediumContent}}</{{ComponentName}}>
+          <{{ComponentName}} size="lg">{{sizeLargeContent}}</{{ComponentName}}>
+        </div>
+        <div className="flex gap-2 items-center">
+          <{{ComponentName}} disabled>{{disabledContent}}</{{ComponentName}}>
+        </div>
+      </div>
+    </StoryWrapper>
+  ),
+};
+
+// Theme demonstration story
+export const ThemeShowcase: Story = {
+  render: () => (
+    <ThemeShowcaseWrapper 
+      componentName="{{ComponentName}}"
+      surfaceExample={
+        <>
+          <{{ComponentName}} size="sm">{{surfaceSmallContent}}</{{ComponentName}}>
+          <{{ComponentName}}>{{surfaceDefaultContent}}</{{ComponentName}}>
+        </>
+      }
+    >
+      {{allVariantsRender}}
+    </ThemeShowcaseWrapper>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'This story demonstrates how the {{ComponentName}} component adapts to different themes. Switch between Light, Dark, and System themes using the toolbar control above.',
+      },
+    },
+  },
+};

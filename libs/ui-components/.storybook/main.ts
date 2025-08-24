@@ -14,6 +14,16 @@ const config: StorybookConfig = {
     options: {},
   },
 
+  previewHead: head => `
+    ${head}
+    <style>
+      #storybook-root {
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+    </style>
+  `,
+
   viteFinal: async config =>
     mergeConfig(config, {
       plugins: [react(), nxViteTsPaths()],

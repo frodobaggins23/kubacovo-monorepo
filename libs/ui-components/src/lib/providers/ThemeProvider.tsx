@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react';
+import { createContext, useContext, type ReactNode } from 'react';
 import { useTheme, type Theme, type ResolvedTheme } from '../hooks/useTheme';
 
 interface ThemeContextValue {
@@ -11,7 +11,7 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 interface ThemeProviderProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 /**

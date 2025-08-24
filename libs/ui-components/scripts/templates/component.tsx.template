@@ -1,0 +1,41 @@
+import React from 'react';
+
+export interface {{ComponentName}}Props
+  extends React.HTMLAttributes<HTMLElement> {
+  size?: 'sm' | 'md' | 'lg';
+  variant?: '{{defaultVariant}}'{{additionalVariants}};
+  disabled?: boolean;
+  children?: React.ReactNode;
+}
+
+export function {{ComponentName}}({
+  size = 'md',
+  variant = '{{defaultVariant}}',
+  disabled = false,
+  className = '',
+  children,
+  ...props
+}: {{ComponentName}}Props) {
+  const baseClasses = '{{baseClasses}}';
+  
+  const sizeClasses = {
+    sm: '{{smClasses}}',
+    md: '{{mdClasses}}',
+    lg: '{{lgClasses}}',
+  };
+  
+  const variantClasses = {
+    {{defaultVariant}}: '{{defaultVariantClasses}}',
+    {{variantClassMappings}}
+  };
+
+  const classes = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${
+    disabled ? 'opacity-50 cursor-not-allowed' : ''
+  } ${className}`;
+
+  return (
+    <{{htmlElement}} className={classes} {...props}>
+      {children}
+    </{{htmlElement}}>
+  );
+}

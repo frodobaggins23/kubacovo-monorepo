@@ -8,7 +8,7 @@
 - [x] Move existing Button to `primitives/` folder
 - [x] Document Tailwind + theme integration patterns
 - [x] Create component design patterns guide
-- [ ] Set up component templates and generators
+- [x] Set up component templates and generators
 
 ## 🎨 Design System Foundation
 
@@ -34,8 +34,8 @@
 
 ### 🟢 Simple Components (1-2 hours each)
 
-- [ ] Badge/Chip component
-- [ ] Avatar component
+- [x] Badge/Chip component
+- [x] Avatar component
 - [ ] Link component
 - [ ] Spinner/Loading component
 - [ ] Icon component wrapper

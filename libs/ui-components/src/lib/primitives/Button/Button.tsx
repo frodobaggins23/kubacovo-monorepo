@@ -1,21 +1,28 @@
 import React from 'react';
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'danger' | 'outline';
+export interface ButtonProps extends React.HTMLAttributes<HTMLElement> {
   size?: 'sm' | 'md' | 'lg';
-  children: React.ReactNode;
+  variant?: 'primary' | 'secondary' | 'danger' | 'outline';
+  disabled?: boolean;
+  children?: React.ReactNode;
 }
 
 export function Button({
-  variant = 'primary',
   size = 'md',
+  variant = 'primary',
+  disabled = false,
   className = '',
   children,
   ...props
 }: ButtonProps) {
   const baseClasses =
     'inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+
+  const sizeClasses = {
+    sm: 'px-3 py-1.5 text-sm',
+    md: 'px-4 py-2 text-base',
+    lg: 'px-6 py-3 text-lg',
+  };
 
   const variantClasses = {
     primary:
@@ -28,13 +35,9 @@ export function Button({
       'border border-ui-border bg-ui-background text-ui-text-primary hover:bg-ui-surface focus:ring-ui-primary/30',
   };
 
-  const sizeClasses = {
-    sm: 'px-3 py-1.5 text-sm',
-    md: 'px-4 py-2 text-base',
-    lg: 'px-6 py-3 text-lg',
-  };
-
-  const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
+  const classes = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${
+    disabled ? 'opacity-50 cursor-not-allowed' : ''
+  } ${className}`;
 
   return (
     <button className={classes} {...props}>

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from './Button';
+import { Avatar } from './Avatar';
 import { StoryWrapper } from '../../utils/StoryWrapper';
 import { ThemeShowcaseWrapper } from '../../utils/ThemeShowcase';
 
-const meta: Meta<typeof Button> = {
-  title: '1. Primitives/Button',
-  component: Button,
+const meta: Meta<typeof Avatar> = {
+  title: '1. Primitives/Avatar',
+  component: Avatar,
   parameters: {
     layout: 'centered',
   },
@@ -17,7 +17,7 @@ const meta: Meta<typeof Button> = {
     },
     variant: {
       control: { type: 'select' },
-      options: ['primary', 'secondary', 'danger', 'outline'],
+      options: ['default', 'rounded'],
     },
     disabled: {
       control: { type: 'boolean' },
@@ -31,12 +31,12 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: args => (
     <StoryWrapper>
-      <Button {...args} />
+      <Avatar {...args} />
     </StoryWrapper>
   ),
   args: {
-    variant: 'primary',
-    children: 'Button',
+    variant: 'default',
+    children: 'JD',
   },
 };
 
@@ -46,18 +46,16 @@ export const AllVariants: Story = {
     <StoryWrapper>
       <div className='flex flex-col gap-4'>
         <div className='flex gap-2 items-center'>
-          <Button variant='primary'>Primary</Button>
-          <Button variant='secondary'>Secondary</Button>
-          <Button variant='danger'>Danger</Button>
-          <Button variant='outline'>Outline</Button>
+          <Avatar variant='default'>JD</Avatar>
+          <Avatar variant='rounded'>AM</Avatar>
         </div>
         <div className='flex gap-2 items-center'>
-          <Button size='sm'>Small</Button>
-          <Button size='md'>Medium</Button>
-          <Button size='lg'>Large</Button>
+          <Avatar size='sm'>SM</Avatar>
+          <Avatar size='md'>MD</Avatar>
+          <Avatar size='lg'>LG</Avatar>
         </div>
         <div className='flex gap-2 items-center'>
-          <Button disabled>Disabled</Button>
+          <Avatar disabled>DX</Avatar>
         </div>
       </div>
     </StoryWrapper>
@@ -68,25 +66,23 @@ export const AllVariants: Story = {
 export const ThemeShowcase: Story = {
   render: () => (
     <ThemeShowcaseWrapper
-      componentName='Button'
+      componentName='Avatar'
       surfaceExample={
         <>
-          <Button size='sm'>Small on surface</Button>
-          <Button>Default on surface</Button>
+          <Avatar size='sm'>SM</Avatar>
+          <Avatar>DF</Avatar>
         </>
       }
     >
-      <Button variant='primary'>Primary</Button>
-      <Button variant='secondary'>Secondary</Button>
-      <Button variant='danger'>Danger</Button>
-      <Button variant='outline'>Outline</Button>
+      <Avatar variant='default'>JD</Avatar>
+      <Avatar variant='rounded'>AM</Avatar>
     </ThemeShowcaseWrapper>
   ),
   parameters: {
     docs: {
       description: {
         story:
-          'This story demonstrates how the Button component adapts to different themes. Switch between Light, Dark, and System themes using the toolbar control above.',
+          'This story demonstrates how the Avatar component adapts to different themes. Switch between Light, Dark, and System themes using the toolbar control above.',
       },
     },
   },
