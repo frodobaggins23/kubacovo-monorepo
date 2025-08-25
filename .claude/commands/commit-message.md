@@ -21,6 +21,9 @@
 
 ## Scope Detection Rules
 
+✅ **ALWAYS run `.claude/scripts/get-scope.sh` first to get the proper scope**
+✅ **Use the exact scope returned by the script in the commit message format: `feat(scope): description`**
+
 - **apps/portfolio-presentation/** → scope "portfolio-presentation"
 - **libs/ui-components/** → scope "ui-components"
 - **.claude/** files → scope "claude"
