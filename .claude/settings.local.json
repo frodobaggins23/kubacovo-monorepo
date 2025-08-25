@@ -15,7 +15,8 @@
       "Bash(mv:*)",
       "Bash(node:*)",
       "WebFetch(domain:storybook.js.org)",
-      "WebFetch(domain:stackoverflow.com)"
+      "WebFetch(domain:stackoverflow.com)",
+      "Bash(/home/node/kubacovo-monorepo/.claude/scripts/get-scope.sh:*)"
     ],
     "deny": []
   },
