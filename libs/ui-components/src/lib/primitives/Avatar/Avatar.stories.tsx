@@ -60,6 +60,9 @@ export const AllVariants: Story = {
       </div>
     </StoryWrapper>
   ),
+  parameters: {
+    controls: { disable: true },
+  },
 };
 
 // Theme demonstration story
@@ -79,6 +82,7 @@ export const ThemeShowcase: Story = {
     </ThemeShowcaseWrapper>
   ),
   parameters: {
+    controls: { disable: true },
     docs: {
       description: {
         story:

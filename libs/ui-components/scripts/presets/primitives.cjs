@@ -56,6 +56,44 @@ const PRIMITIVES = {
     },
     sampleContent: 'JD'
   },
+  Spinner: {
+    folder: 'primitives',
+    htmlElement: 'div',
+    defaultVariant: 'default',
+    variants: ['default', 'primary', 'secondary'],
+    baseClasses: 'inline-block animate-spin rounded-full border-2 border-solid border-current border-r-transparent',
+    sizes: {
+      sm: 'h-4 w-4',
+      md: 'h-6 w-6',
+      lg: 'h-8 w-8'
+    },
+    variantClasses: {
+      default: 'text-ui-text-primary',
+      primary: 'text-ui-primary',
+      secondary: 'text-ui-secondary'
+    },
+    sampleContent: ''
+  },
+  Icon: {
+    folder: 'primitives',
+    htmlElement: 'span',
+    defaultVariant: 'default',
+    variants: ['default', 'primary', 'secondary', 'muted', 'danger'],
+    baseClasses: 'inline-flex items-center justify-center',
+    sizes: {
+      sm: 'h-4 w-4',
+      md: 'h-5 w-5',
+      lg: 'h-6 w-6'
+    },
+    variantClasses: {
+      default: 'text-ui-text-primary',
+      primary: 'text-ui-primary',
+      secondary: 'text-ui-secondary',
+      muted: 'text-ui-text-muted',
+      danger: 'text-ui-danger'
+    },
+    sampleContent: '★'
+  },
   Link: {
     folder: 'primitives',
     htmlElement: 'a',

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Badge } from './Badge';
+import { Link } from './Link';
 import { StoryWrapper } from '../../utils/StoryWrapper';
 import { ThemeShowcaseWrapper } from '../../utils/ThemeShowcase';
 
-const meta: Meta<typeof Badge> = {
-  title: '1. Primitives/Badge',
-  component: Badge,
+const meta: Meta<typeof Link> = {
+  title: '1. Primitives/Link',
+  component: Link,
   parameters: {
     layout: 'centered',
   },
@@ -17,14 +17,7 @@ const meta: Meta<typeof Badge> = {
     },
     variant: {
       control: { type: 'select' },
-      options: [
-        'default',
-        'primary',
-        'secondary',
-        'success',
-        'warning',
-        'danger',
-      ],
+      options: ['default', 'primary', 'muted'],
     },
     disabled: {
       control: { type: 'boolean' },
@@ -38,12 +31,12 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: args => (
     <StoryWrapper>
-      <Badge {...args} />
+      <Link {...args} />
     </StoryWrapper>
   ),
   args: {
     variant: 'default',
-    children: 'Badge',
+    children: 'Link text',
   },
 };
 
@@ -53,20 +46,17 @@ export const AllVariants: Story = {
     <StoryWrapper>
       <div className='flex flex-col gap-4'>
         <div className='flex gap-2 items-center'>
-          <Badge variant='default'>Default</Badge>
-          <Badge variant='primary'>Primary</Badge>
-          <Badge variant='secondary'>Secondary</Badge>
-          <Badge variant='success'>Success</Badge>
-          <Badge variant='warning'>Warning</Badge>
-          <Badge variant='danger'>Danger</Badge>
+          <Link variant='default'>Default</Link>
+          <Link variant='primary'>Primary</Link>
+          <Link variant='muted'>Muted</Link>
         </div>
         <div className='flex gap-2 items-center'>
-          <Badge size='sm'>Small</Badge>
-          <Badge size='md'>Medium</Badge>
-          <Badge size='lg'>Large</Badge>
+          <Link size='sm'>Small</Link>
+          <Link size='md'>Medium</Link>
+          <Link size='lg'>Large</Link>
         </div>
         <div className='flex gap-2 items-center'>
-          <Badge disabled>Disabled</Badge>
+          <Link disabled>Disabled</Link>
         </div>
       </div>
     </StoryWrapper>
@@ -80,20 +70,17 @@ export const AllVariants: Story = {
 export const ThemeShowcase: Story = {
   render: () => (
     <ThemeShowcaseWrapper
-      componentName='Badge'
+      componentName='Link'
       surfaceExample={
         <>
-          <Badge size='sm'>Small on surface</Badge>
-          <Badge>Default on surface</Badge>
+          <Link size='sm'>Small on surface</Link>
+          <Link>Default on surface</Link>
         </>
       }
     >
-      <Badge variant='default'>Default</Badge>
-      <Badge variant='primary'>Primary</Badge>
-      <Badge variant='secondary'>Secondary</Badge>
-      <Badge variant='success'>Success</Badge>
-      <Badge variant='warning'>Warning</Badge>
-      <Badge variant='danger'>Danger</Badge>
+      <Link variant='default'>Default</Link>
+      <Link variant='primary'>Primary</Link>
+      <Link variant='muted'>Muted</Link>
     </ThemeShowcaseWrapper>
   ),
   parameters: {
@@ -101,7 +88,7 @@ export const ThemeShowcase: Story = {
     docs: {
       description: {
         story:
-          'This story demonstrates how the Badge component adapts to different themes. Switch between Light, Dark, and System themes using the toolbar control above.',
+          'This story demonstrates how the Link component adapts to different themes. Switch between Light, Dark, and System themes using the toolbar control above.',
       },
     },
   },
