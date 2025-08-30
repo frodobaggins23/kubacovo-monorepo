@@ -4,7 +4,7 @@ import { StoryWrapper } from '../../utils/StoryWrapper';
 import { ThemeShowcaseWrapper } from '../../utils/ThemeShowcase';
 
 const meta: Meta<typeof Badge> = {
-  title: '1. Primitives/Badge',
+  title: '01. Primitives/Badge',
   component: Badge,
   parameters: {
     layout: 'centered',

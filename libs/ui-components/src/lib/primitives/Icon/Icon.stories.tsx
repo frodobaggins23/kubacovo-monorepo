@@ -4,7 +4,7 @@ import { StoryWrapper } from '../../utils/StoryWrapper';
 import { ThemeShowcaseWrapper } from '../../utils/ThemeShowcase';
 
 const meta: Meta<typeof Icon> = {
-  title: '1. Primitives/Icon',
+  title: '01. Primitives/Icon',
   component: Icon,
   parameters: {
     layout: 'centered',

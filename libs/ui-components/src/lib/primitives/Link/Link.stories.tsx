@@ -4,7 +4,7 @@ import { StoryWrapper } from '../../utils/StoryWrapper';
 import { ThemeShowcaseWrapper } from '../../utils/ThemeShowcase';
 
 const meta: Meta<typeof Link> = {
-  title: '1. Primitives/Link',
+  title: '01. Primitives/Link',
   component: Link,
   parameters: {
     layout: 'centered',

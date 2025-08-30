@@ -23,7 +23,7 @@ export function StoryWrapper({
 }: StoryWrapperProps) {
   return (
     <div
-      className={`bg-ui-background text-ui-text-primary w-screen h-screen ${centered ? 'flex items-center justify-center' : ''} ${className}`}
+      className={`bg-ui-background text-ui-text-primary w-screen min-h-screen max-h-full ${centered ? 'flex items-center justify-center' : ''} ${className}`}
     >
       <div className='p-6'>{children}</div>
     </div>

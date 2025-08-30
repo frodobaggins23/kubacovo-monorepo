@@ -4,7 +4,7 @@ import { StoryWrapper } from '../../utils/StoryWrapper';
 import { ThemeShowcaseWrapper } from '../../utils/ThemeShowcase';
 
 const meta: Meta<typeof Avatar> = {
-  title: '1. Primitives/Avatar',
+  title: '01. Primitives/Avatar',
   component: Avatar,
   parameters: {
     layout: 'centered',

@@ -12,12 +12,12 @@ const { COMPONENT_SPECIFICS } = require('./presets/component-specifics.cjs');
 
 // Component category mappings
 const CATEGORY_TITLES = {
-  primitives: '1. Primitives',
-  layout: '2. Layout', 
-  forms: '3. Forms',
-  feedback: '4. Feedback',
-  navigation: '5. Navigation',
-  'data-display': '6. Data Display'
+  primitives: '01. Primitives',
+  layout: '02. Layout', 
+  forms: '03. Forms',
+  feedback: '04. Feedback',
+  navigation: '05. Navigation',
+  'data-display': '06. Data Display'
 };
 
 // Combine all component presets

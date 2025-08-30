@@ -4,7 +4,7 @@ import { StoryWrapper } from '../../utils/StoryWrapper';
 import { ThemeShowcaseWrapper } from '../../utils/ThemeShowcase';
 
 const meta: Meta<typeof Spinner> = {
-  title: '1. Primitives/Spinner',
+  title: '01. Primitives/Spinner',
   component: Spinner,
   parameters: {
     layout: 'centered',

@@ -57,6 +57,19 @@ const preview: Preview = {
       },
     },
     layout: 'fullscreen',
+    options: {
+      storySort: {
+        method: 'alphabetical',
+        order: [
+          '01. Primitives',
+          '02. Layout',
+          '03. Forms',
+          '04. Feedback',
+          '05. Navigation',
+          '06. Data Display',
+        ],
+      },
+    },
   },
 };
 

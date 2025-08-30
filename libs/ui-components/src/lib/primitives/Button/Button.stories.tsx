@@ -4,7 +4,7 @@ import { StoryWrapper } from '../../utils/StoryWrapper';
 import { ThemeShowcaseWrapper } from '../../utils/ThemeShowcase';
 
 const meta: Meta<typeof Button> = {
-  title: '1. Primitives/Button',
+  title: '01. Primitives/Button',
   component: Button,
   parameters: {
     layout: 'centered',

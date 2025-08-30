@@ -15,12 +15,24 @@
   --color-blue-600: 37 99 235;
   --color-red-500: 239 68 68;
   --color-red-600: 220 38 38;
+  --color-green-700: 21 128 61;
+  --color-green-800: 22 101 52;
+  --color-yellow-600: 161 98 7;
+  --color-yellow-700: 146 64 14;
+  --color-cyan-600: 14 116 144;
+  --color-cyan-700: 3 105 161;
 
   /* Static theme colors - same in all themes */
   --ui-primary: var(--color-blue-500);
   --ui-primary-hover: var(--color-blue-600);
   --ui-danger: var(--color-red-500);
   --ui-danger-hover: var(--color-red-600);
+  --ui-success: var(--color-green-700);
+  --ui-success-hover: var(--color-green-800);
+  --ui-warning: var(--color-yellow-600);
+  --ui-warning-hover: var(--color-yellow-700);
+  --ui-info: var(--color-cyan-600);
+  --ui-info-hover: var(--color-cyan-700);
 
   /* Theme-dependent colors - light theme default */
   --ui-background: var(--color-white);
@@ -119,6 +131,54 @@
   background-color: rgb(var(--ui-danger) / 0.3);
 }
 
+.bg-ui-success {
+  background-color: rgb(var(--ui-success));
+}
+.bg-ui-success-hover {
+  background-color: rgb(var(--ui-success-hover));
+}
+.bg-ui-success\/10 {
+  background-color: rgb(var(--ui-success) / 0.1);
+}
+.bg-ui-success\/20 {
+  background-color: rgb(var(--ui-success) / 0.2);
+}
+.bg-ui-success\/30 {
+  background-color: rgb(var(--ui-success) / 0.3);
+}
+
+.bg-ui-warning {
+  background-color: rgb(var(--ui-warning));
+}
+.bg-ui-warning-hover {
+  background-color: rgb(var(--ui-warning-hover));
+}
+.bg-ui-warning\/10 {
+  background-color: rgb(var(--ui-warning) / 0.1);
+}
+.bg-ui-warning\/20 {
+  background-color: rgb(var(--ui-warning) / 0.2);
+}
+.bg-ui-warning\/30 {
+  background-color: rgb(var(--ui-warning) / 0.3);
+}
+
+.bg-ui-info {
+  background-color: rgb(var(--ui-info));
+}
+.bg-ui-info-hover {
+  background-color: rgb(var(--ui-info-hover));
+}
+.bg-ui-info\/10 {
+  background-color: rgb(var(--ui-info) / 0.1);
+}
+.bg-ui-info\/20 {
+  background-color: rgb(var(--ui-info) / 0.2);
+}
+.bg-ui-info\/30 {
+  background-color: rgb(var(--ui-info) / 0.3);
+}
+
 .bg-ui-background {
   background-color: rgb(var(--ui-background));
 }
@@ -133,6 +193,21 @@
 .text-ui-text-secondary {
   color: rgb(var(--ui-text-secondary));
 }
+.text-ui-primary {
+  color: rgb(var(--ui-primary));
+}
+.text-ui-danger {
+  color: rgb(var(--ui-danger));
+}
+.text-ui-success {
+  color: rgb(var(--ui-success));
+}
+.text-ui-warning {
+  color: rgb(var(--ui-warning));
+}
+.text-ui-info {
+  color: rgb(var(--ui-info));
+}
 
 /* Border colors */
 .border-ui-border {
@@ -140,6 +215,18 @@
 }
 .border-ui-primary {
   border-color: rgb(var(--ui-primary));
+}
+.border-ui-danger {
+  border-color: rgb(var(--ui-danger));
+}
+.border-ui-success {
+  border-color: rgb(var(--ui-success));
+}
+.border-ui-warning {
+  border-color: rgb(var(--ui-warning));
+}
+.border-ui-info {
+  border-color: rgb(var(--ui-info));
 }
 
 /* Ring colors */
@@ -151,6 +238,20 @@
 }
 .ring-ui-danger\/30 {
   --tw-ring-color: rgb(var(--ui-danger) / 0.3);
+}
+.ring-ui-success\/30 {
+  --tw-ring-color: rgb(var(--ui-success) / 0.3);
+}
+
+/* Accent colors for form controls (checkboxes, radios) */
+.accent-ui-primary {
+  accent-color: rgb(var(--ui-primary));
+}
+.accent-ui-danger {
+  accent-color: rgb(var(--ui-danger));
+}
+.accent-ui-success {
+  accent-color: rgb(var(--ui-success));
 }
 
 /* Theme transition animations - respects prefers-reduced-motion */
