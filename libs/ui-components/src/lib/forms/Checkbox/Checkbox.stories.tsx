@@ -22,6 +22,9 @@ const meta: Meta<typeof Checkbox> = {
     disabled: {
       control: { type: 'boolean' },
     },
+    label: {
+      control: { type: 'text' },
+    },
   },
 };
 
@@ -36,6 +39,7 @@ export const Default: Story = {
   ),
   args: {
     variant: 'default',
+    label: 'Default checkbox with label prop',
   },
 };
 
@@ -45,49 +49,51 @@ export const AllVariants: Story = {
     <StoryWrapper>
       <div className='flex flex-col gap-4 w-full max-w-md'>
         <div className='space-y-2'>
-          <label className='text-sm font-medium'>Variants</label>
+          <label className='text-sm font-medium'>
+            Variants (with label prop)
+          </label>
           <div className='flex flex-col gap-2'>
-            <label className='flex items-center gap-2'>
-              <Checkbox variant='default' />
-              <span>Default checkbox</span>
-            </label>
-            <label className='flex items-center gap-2'>
-              <Checkbox variant='error' />
-              <span>Error checkbox</span>
-            </label>
-            <label className='flex items-center gap-2'>
-              <Checkbox variant='success' />
-              <span>Success checkbox</span>
-            </label>
+            <Checkbox variant='default' label='Default checkbox' />
+            <Checkbox variant='error' label='Error checkbox' />
+            <Checkbox variant='success' label='Success checkbox' />
           </div>
         </div>
         <div className='space-y-2'>
-          <label className='text-sm font-medium'>Sizes</label>
+          <label className='text-sm font-medium'>Sizes (with label prop)</label>
           <div className='flex flex-col gap-2'>
-            <label className='flex items-center gap-2'>
-              <Checkbox size='sm' />
-              <span>Small checkbox</span>
-            </label>
-            <label className='flex items-center gap-2'>
-              <Checkbox size='md' />
-              <span>Medium checkbox</span>
-            </label>
-            <label className='flex items-center gap-2'>
-              <Checkbox size='lg' />
-              <span>Large checkbox</span>
-            </label>
+            <Checkbox size='sm' label='Small checkbox' />
+            <Checkbox size='md' label='Medium checkbox' />
+            <Checkbox size='lg' label='Large checkbox' />
           </div>
         </div>
         <div className='space-y-2'>
-          <label className='text-sm font-medium'>States</label>
+          <label className='text-sm font-medium'>
+            States (with label prop)
+          </label>
+          <div className='flex flex-col gap-2'>
+            <Checkbox label='Normal checkbox' />
+            <Checkbox disabled label='Disabled checkbox' />
+          </div>
+        </div>
+        <div className='space-y-2'>
+          <label className='text-sm font-medium'>
+            Manual Label Wrapping (for complex layouts)
+          </label>
           <div className='flex flex-col gap-2'>
             <label className='flex items-center gap-2'>
               <Checkbox />
-              <span>Normal checkbox</span>
+              <span>
+                Manual label with <strong>HTML formatting</strong>
+              </span>
             </label>
             <label className='flex items-center gap-2'>
-              <Checkbox disabled />
-              <span>Disabled checkbox</span>
+              <Checkbox />
+              <div>
+                <div className='text-sm font-medium'>Primary text</div>
+                <div className='text-xs text-ui-text-secondary'>
+                  Secondary description
+                </div>
+              </div>
             </label>
           </div>
         </div>
@@ -106,29 +112,14 @@ export const ThemeShowcase: Story = {
       componentName='Checkbox'
       surfaceExample={
         <>
-          <label className='flex items-center gap-2'>
-            <Checkbox size='sm' />
-            <span>Small on surface</span>
-          </label>
-          <label className='flex items-center gap-2'>
-            <Checkbox />
-            <span>Default on surface</span>
-          </label>
+          <Checkbox size='sm' label='Small on surface' />
+          <Checkbox label='Default on surface' />
         </>
       }
     >
-      <label className='flex items-center gap-2'>
-        <Checkbox variant='default' />
-        <span>Default</span>
-      </label>
-      <label className='flex items-center gap-2'>
-        <Checkbox variant='error' />
-        <span>Error</span>
-      </label>
-      <label className='flex items-center gap-2'>
-        <Checkbox variant='success' />
-        <span>Success</span>
-      </label>
+      <Checkbox variant='default' label='Default' />
+      <Checkbox variant='error' label='Error' />
+      <Checkbox variant='success' label='Success' />
     </ThemeShowcaseWrapper>
   ),
   parameters: {

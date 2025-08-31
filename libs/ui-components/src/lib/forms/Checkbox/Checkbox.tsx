@@ -4,6 +4,7 @@ export interface CheckboxProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   size?: 'sm' | 'md' | 'lg';
   variant?: 'default' | 'error' | 'success';
+  label?: string;
 }
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
@@ -13,6 +14,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       variant = 'default',
       className = '',
       disabled = false,
+      label,
       ...props
     },
     ref
@@ -36,6 +38,21 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     };
 
     const classes = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
+
+    if (label) {
+      return (
+        <label className='flex items-center space-x-2 cursor-pointer'>
+          <input
+            ref={ref}
+            type='checkbox'
+            disabled={disabled}
+            className={classes}
+            {...props}
+          />
+          <span className='text-sm text-ui-text select-none'>{label}</span>
+        </label>
+      );
+    }
 
     return (
       <input

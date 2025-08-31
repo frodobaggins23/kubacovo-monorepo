@@ -1,0 +1,140 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { {{ComponentName}} } from './{{ComponentName}}';
+import { StoryWrapper } from '../../utils/StoryWrapper';
+import { ThemeShowcaseWrapper } from '../../utils/ThemeShowcase';
+import { 
+  DemoCard, 
+  DemoFormGroup, 
+  DemoContentBlock, 
+  DemoNavigation, 
+  DemoMetrics 
+} from '../../utils/storybook-demonstration-components';
+
+const meta: Meta<typeof {{ComponentName}}> = {
+  title: '{{categoryTitle}}/{{ComponentName}}',
+  component: {{ComponentName}},
+  parameters: {
+    layout: 'centered',
+  },
+  tags: ['autodocs'],
+  argTypes: {
+    {{argTypes}}
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  render: (args) => (
+    <StoryWrapper>
+      <{{ComponentName}} {...args}>
+        <DemoCard title="First Item" />
+        <DemoCard title="Second Item" />
+        <DemoCard title="Third Item" />
+      </{{ComponentName}}>
+    </StoryWrapper>
+  ),
+  args: {
+    {{defaultArgs}}
+  },
+};
+
+// Layout behavior demonstration
+export const LayoutBehavior: Story = {
+  render: () => (
+    <StoryWrapper>
+      <div className="space-y-8 w-full max-w-4xl">
+        {{layoutDemonstrations}}
+      </div>
+    </StoryWrapper>
+  ),
+  parameters: {
+    controls: { disable: true },
+  },
+};
+
+// Mixed content demonstration
+export const MixedContent: Story = {
+  render: () => (
+    <StoryWrapper>
+      <{{ComponentName}} {{mixedContentProps}}>
+        <DemoCard 
+          title="Dashboard Overview" 
+          description="Key metrics and recent activity"
+          cardVariant="elevated"
+        />
+        <DemoFormGroup 
+          inputLabel="Search Projects"
+          checkboxLabel="Show archived"
+          buttonText="Filter"
+          compact
+        />
+        <DemoContentBlock 
+          title="System Status"
+          variant="success"
+          alertContent="All systems operational"
+        />
+        <DemoMetrics layout="compact" />
+      </{{ComponentName}}>
+    </StoryWrapper>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story: 'Demonstrates how {{ComponentName}} handles mixed content types with varied heights and complex internal layouts.',
+      },
+    },
+  },
+};
+
+// Responsive behavior story
+export const ResponsiveBehavior: Story = {
+  render: () => (
+    <StoryWrapper>
+      <div className="w-full max-w-6xl space-y-6">
+        <div className="space-y-2">
+          <label className="text-sm font-medium">Responsive Layout</label>
+          <p className="text-sm text-ui-text-secondary">
+            Resize your browser to see how the layout adapts to different screen sizes
+          </p>
+        </div>
+        {{responsiveExamples}}
+      </div>
+    </StoryWrapper>
+  ),
+  parameters: {
+    controls: { disable: true },
+  },
+};
+
+// Theme demonstration story
+export const ThemeShowcase: Story = {
+  render: () => (
+    <ThemeShowcaseWrapper 
+      componentName="{{ComponentName}}"
+      surfaceExample={
+        <{{ComponentName}} {{themeSurfaceProps}}>
+          <DemoCard title="Card on Surface" cardVariant="default" />
+          <DemoFormGroup compact />
+        </{{ComponentName}}>
+      }
+    >
+      <{{ComponentName}} {{themeShowcaseProps}}>
+        <DemoCard title="Sample Card" />
+        <DemoContentBlock includeAlert={false} />
+        <DemoNavigation orientation="horizontal" />
+      </{{ComponentName}}>
+    </ThemeShowcaseWrapper>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'This story demonstrates how the {{ComponentName}} component and its children adapt to different themes. Switch between Light, Dark, and System themes using the toolbar control above.',
+      },
+    },
+  },
+};

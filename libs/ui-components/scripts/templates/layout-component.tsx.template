@@ -1,0 +1,24 @@
+import React from 'react';
+
+export interface {{ComponentName}}Props
+  extends React.HTMLAttributes<HTMLElement> {
+  {{layoutSpecificProps}}
+  children?: React.ReactNode;
+}
+
+export function {{ComponentName}}({
+  {{defaultPropValues}}
+  className = '',
+  children,
+  ...props
+}: {{ComponentName}}Props) {
+  {{layoutLogic}}
+
+  const classes = `{{baseClasses}} ${{{classComposition}}} ${className}`;
+
+  return (
+    <{{htmlElement}} className={classes} {...props}>
+      {children}
+    </{{htmlElement}}>
+  );
+}

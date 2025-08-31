@@ -7,6 +7,7 @@ const path = require('path');
 const { PRIMITIVES } = require('./presets/primitives.cjs');
 const { FORMS } = require('./presets/forms.cjs');
 const { LAYOUT } = require('./presets/layout.cjs');
+const { LAYOUT_ADVANCED } = require('./presets/layout-advanced.cjs');
 const { FEEDBACK } = require('./presets/feedback.cjs');
 const { COMPONENT_SPECIFICS } = require('./presets/component-specifics.cjs');
 
@@ -25,6 +26,7 @@ const COMPONENT_PRESETS = {
   ...PRIMITIVES,
   ...FORMS,
   ...LAYOUT,
+  ...LAYOUT_ADVANCED,
   ...FEEDBACK
 };
 
@@ -49,44 +51,74 @@ function generateComponent(componentName) {
     return template
       .replace(/\{\{ComponentName\}\}/g, data.ComponentName)
       .replace(/\{\{htmlElement\}\}/g, data.htmlElement)
-      .replace(/\{\{defaultVariant\}\}/g, data.defaultVariant)
-      .replace(/\{\{additionalVariants\}\}/g, data.additionalVariants)
       .replace(/\{\{baseClasses\}\}/g, data.baseClasses)
-      .replace(/\{\{smClasses\}\}/g, data.smClasses)
-      .replace(/\{\{mdClasses\}\}/g, data.mdClasses)
-      .replace(/\{\{lgClasses\}\}/g, data.lgClasses)
-      .replace(/\{\{defaultVariantClasses\}\}/g, data.defaultVariantClasses)
-      .replace(/\{\{variantClassMappings\}\}/g, data.variantClassMappings)
-      .replace(/\{\{variantOptions\}\}/g, data.variantOptions)
-      .replace(/\{\{variantStories\}\}/g, data.variantStories)
-      .replace(/\{\{sampleContent\}\}/g, data.sampleContent)
-      .replace(/\{\{allVariantsRender\}\}/g, data.allVariantsRender)
-      .replace(/\{\{surfaceSmallContent\}\}/g, data.surfaceSmallContent)
-      .replace(/\{\{surfaceDefaultContent\}\}/g, data.surfaceDefaultContent)
-      .replace(/\{\{sizeSmallContent\}\}/g, data.sizeSmallContent)
-      .replace(/\{\{sizeMediumContent\}\}/g, data.sizeMediumContent)
-      .replace(/\{\{sizeLargeContent\}\}/g, data.sizeLargeContent)
-      .replace(/\{\{disabledContent\}\}/g, data.disabledContent)
-      .replace(/\{\{categoryTitle\}\}/g, data.categoryTitle);
+      .replace(/\{\{categoryTitle\}\}/g, data.categoryTitle)
+      // Layout-specific replacements
+      .replace(/\{\{layoutSpecificProps\}\}/g, data.layoutSpecificProps || '')
+      .replace(/\{\{defaultPropValues\}\}/g, data.defaultPropValues || '')
+      .replace(/\{\{layoutLogic\}\}/g, data.layoutLogic || '')
+      .replace(/\{\{classComposition\}\}/g, data.classComposition || '')
+      .replace(/\{\{argTypes\}\}/g, data.argTypes || '')
+      .replace(/\{\{defaultArgs\}\}/g, data.defaultArgs || '')
+      .replace(/\{\{layoutDemonstrations\}\}/g, data.layoutDemonstrations || '')
+      .replace(/\{\{mixedContentProps\}\}/g, data.mixedContentProps || '')
+      .replace(/\{\{responsiveExamples\}\}/g, data.responsiveExamples || '')
+      .replace(/\{\{themeSurfaceProps\}\}/g, data.themeSurfaceProps || '')
+      .replace(/\{\{themeShowcaseProps\}\}/g, data.themeShowcaseProps || '')
+      // Traditional component replacements (fallback for layout components)
+      .replace(/\{\{defaultVariant\}\}/g, data.defaultVariant || '')
+      .replace(/\{\{additionalVariants\}\}/g, data.additionalVariants || '')
+      .replace(/\{\{smClasses\}\}/g, data.smClasses || '')
+      .replace(/\{\{mdClasses\}\}/g, data.mdClasses || '')
+      .replace(/\{\{lgClasses\}\}/g, data.lgClasses || '')
+      .replace(/\{\{defaultVariantClasses\}\}/g, data.defaultVariantClasses || '')
+      .replace(/\{\{variantClassMappings\}\}/g, data.variantClassMappings || '')
+      .replace(/\{\{variantOptions\}\}/g, data.variantOptions || '')
+      .replace(/\{\{variantStories\}\}/g, data.variantStories || '')
+      .replace(/\{\{sampleContent\}\}/g, data.sampleContent || '')
+      .replace(/\{\{allVariantsRender\}\}/g, data.allVariantsRender || '')
+      .replace(/\{\{surfaceSmallContent\}\}/g, data.surfaceSmallContent || '')
+      .replace(/\{\{surfaceDefaultContent\}\}/g, data.surfaceDefaultContent || '')
+      .replace(/\{\{sizeSmallContent\}\}/g, data.sizeSmallContent || '')
+      .replace(/\{\{sizeMediumContent\}\}/g, data.sizeMediumContent || '')
+      .replace(/\{\{sizeLargeContent\}\}/g, data.sizeLargeContent || '')
+      .replace(/\{\{disabledContent\}\}/g, data.disabledContent || '');
   }
 
   // Prepare template data
   const templateData = {
     ComponentName: componentName,
     htmlElement: preset.htmlElement,
-    defaultVariant: preset.defaultVariant,
-    additionalVariants: preset.variants.slice(1).map(v => ` | '${v}'`).join(''),
+    // Layout-specific properties
+    ...(preset.isLayoutComponent ? {
+      layoutSpecificProps: preset.layoutSpecificProps || '',
+      defaultPropValues: preset.defaultPropValues || '',
+      layoutLogic: preset.layoutLogic || '',
+      classComposition: preset.classComposition || '',
+      argTypes: preset.argTypes || '',
+      defaultArgs: preset.defaultArgs || '',
+      layoutDemonstrations: preset.layoutDemonstrations || '',
+      mixedContentProps: preset.mixedContentProps || '',
+      responsiveExamples: preset.responsiveExamples || '',
+      themeSurfaceProps: preset.themeSurfaceProps || '',
+      themeShowcaseProps: preset.themeShowcaseProps || '',
+    } : {
+      // Traditional component properties
+      defaultVariant: preset.defaultVariant,
+      additionalVariants: preset.variants.slice(1).map(v => ` | '${v}'`).join(''),
+      smClasses: preset.sizes.sm,
+      mdClasses: preset.sizes.md,
+      lgClasses: preset.sizes.lg,
+      defaultVariantClasses: preset.variantClasses[preset.defaultVariant],
+      variantClassMappings: Object.entries(preset.variantClasses)
+        .filter(([key]) => key !== preset.defaultVariant)
+        .map(([key, value]) => `${key}: '${value}'`)
+        .join(',\n    '),
+      variantOptions: preset.variants.map(v => `'${v}'`).join(', '),
+    }),
     baseClasses: preset.baseClasses,
-    smClasses: preset.sizes.sm,
-    mdClasses: preset.sizes.md,
-    lgClasses: preset.sizes.lg,
-    defaultVariantClasses: preset.variantClasses[preset.defaultVariant],
-    variantClassMappings: Object.entries(preset.variantClasses)
-      .filter(([key]) => key !== preset.defaultVariant)
-      .map(([key, value]) => `${key}: '${value}'`)
-      .join(',\n    '),
-    variantOptions: preset.variants.map(v => `'${v}'`).join(', '),
-    variantStories: preset.variants
+    // Traditional component properties that layout components don't need
+    variantStories: preset.variants ? preset.variants
       .filter(v => v !== preset.defaultVariant)
       .map(variant => {
         const capitalizedVariant = variant.charAt(0).toUpperCase() + variant.slice(1);
@@ -97,9 +129,9 @@ function generateComponent(componentName) {
   },
 };`;
       })
-      .join('\n\n'),
-    sampleContent: preset.sampleContent,
-    allVariantsRender: preset.variants
+      .join('\n\n') : '',
+    sampleContent: preset.sampleContent || '',
+    allVariantsRender: preset.variants ? preset.variants
       .map((variant, index) => {
         const specifics = COMPONENT_SPECIFICS[componentName];
         if (specifics && specifics.generateContent) {
@@ -108,7 +140,7 @@ function generateComponent(componentName) {
         }
         return `<${componentName} variant="${variant}">${capitalizeFirst(variant)}</${componentName}>`;
       })
-      .join('\n        '),
+      .join('\n        ') : '',
     surfaceSmallContent: COMPONENT_SPECIFICS[componentName]?.surfaceSmallContent || 'Small on surface',
     surfaceDefaultContent: COMPONENT_SPECIFICS[componentName]?.surfaceDefaultContent || 'Default on surface',
     sizeSmallContent: COMPONENT_SPECIFICS[componentName]?.sizeSmallContent || 'Small',
@@ -118,8 +150,11 @@ function generateComponent(componentName) {
     categoryTitle: CATEGORY_TITLES[preset.folder] || '0. Uncategorized'
   };
 
-  // Generate component files
-  const templates = ['component.tsx.template', 'stories.tsx.template', 'index.ts.template'];
+  // Generate component files - use layout-specific templates for layout components
+  const isLayoutComponent = preset.isLayoutComponent || false;
+  const templates = isLayoutComponent 
+    ? ['layout-component.tsx.template', 'layout-stories.tsx.template', 'index.ts.template']
+    : ['component.tsx.template', 'stories.tsx.template', 'index.ts.template'];
   const outputFiles = [`${componentName}.tsx`, `${componentName}.stories.tsx`, 'index.ts'];
 
   templates.forEach((templateFile, index) => {
