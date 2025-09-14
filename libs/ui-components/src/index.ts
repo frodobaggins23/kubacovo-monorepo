@@ -8,6 +8,7 @@ export * from './lib/primitives/Spinner';
 export * from './lib/primitives/Icon';
 export * from './lib/forms/Input';
 export * from './lib/forms/Textarea';
+export * from './lib/forms/FormField';
 export * from './lib/feedback/Alert';
 export * from './lib/layout/Card';
 export * from './lib/forms/Checkbox';

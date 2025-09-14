@@ -37,32 +37,35 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         'border-ui-success accent-ui-success focus:border-ui-success focus:ring-ui-success/30',
     };
 
+    const checkboxId = React.useId();
     const classes = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
 
-    if (label) {
-      return (
-        <label className='flex items-center space-x-2 cursor-pointer'>
-          <input
-            ref={ref}
-            type='checkbox'
-            disabled={disabled}
-            className={classes}
-            {...props}
-          />
-          <span className='text-sm text-ui-text select-none'>{label}</span>
-        </label>
-      );
-    }
-
-    return (
+    const checkbox = (
       <input
         ref={ref}
+        id={checkboxId}
         type='checkbox'
         disabled={disabled}
         className={classes}
         {...props}
       />
     );
+
+    if (label) {
+      return (
+        <label
+          htmlFor={checkboxId}
+          className='flex items-center space-x-2 cursor-pointer'
+        >
+          {checkbox}
+          <span className='text-sm text-ui-text-primary select-none'>
+            {label}
+          </span>
+        </label>
+      );
+    }
+
+    return checkbox;
   }
 );
 

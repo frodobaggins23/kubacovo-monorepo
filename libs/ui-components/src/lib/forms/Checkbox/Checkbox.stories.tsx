@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Checkbox } from './Checkbox';
+import { FormField } from '../FormField/FormField';
 import { StoryWrapper } from '../../utils/StoryWrapper';
 import { ThemeShowcaseWrapper } from '../../utils/ThemeShowcase';
 
@@ -7,23 +8,37 @@ const meta: Meta<typeof Checkbox> = {
   title: '03. Forms/Checkbox',
   component: Checkbox,
   parameters: {
-    layout: 'centered',
+    layout: 'padded',
+    docs: {
+      description: {
+        component:
+          'Checkbox component with built-in label support. Use with FormField for error handling and help text.',
+      },
+    },
   },
   tags: ['autodocs'],
   argTypes: {
+    label: {
+      control: { type: 'text' },
+      description: 'Label text for the checkbox',
+    },
     size: {
       control: { type: 'select' },
       options: ['sm', 'md', 'lg'],
+      description: 'Size of the checkbox',
     },
     variant: {
       control: { type: 'select' },
       options: ['default', 'error', 'success'],
+      description: 'Visual variant of the checkbox',
     },
     disabled: {
       control: { type: 'boolean' },
+      description: 'Whether the checkbox is disabled',
     },
-    label: {
-      control: { type: 'text' },
+    checked: {
+      control: { type: 'boolean' },
+      description: 'Whether the checkbox is checked',
     },
   },
 };
@@ -34,67 +49,29 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: args => (
     <StoryWrapper>
-      <Checkbox {...args} />
+      <div className='max-w-md'>
+        <Checkbox {...args} />
+      </div>
     </StoryWrapper>
   ),
   args: {
     variant: 'default',
-    label: 'Default checkbox with label prop',
+    label: 'I agree to the terms and conditions',
   },
 };
 
-// All variants showcase
-export const AllVariants: Story = {
+export const Variants: Story = {
   render: () => (
     <StoryWrapper>
-      <div className='flex flex-col gap-4 w-full max-w-md'>
-        <div className='space-y-2'>
-          <label className='text-sm font-medium'>
-            Variants (with label prop)
-          </label>
-          <div className='flex flex-col gap-2'>
+      <div className='max-w-md space-y-4'>
+        <div>
+          <h3 className='text-sm font-medium text-ui-text-primary mb-3'>
+            Visual Variants
+          </h3>
+          <div className='space-y-3'>
             <Checkbox variant='default' label='Default checkbox' />
             <Checkbox variant='error' label='Error checkbox' />
             <Checkbox variant='success' label='Success checkbox' />
-          </div>
-        </div>
-        <div className='space-y-2'>
-          <label className='text-sm font-medium'>Sizes (with label prop)</label>
-          <div className='flex flex-col gap-2'>
-            <Checkbox size='sm' label='Small checkbox' />
-            <Checkbox size='md' label='Medium checkbox' />
-            <Checkbox size='lg' label='Large checkbox' />
-          </div>
-        </div>
-        <div className='space-y-2'>
-          <label className='text-sm font-medium'>
-            States (with label prop)
-          </label>
-          <div className='flex flex-col gap-2'>
-            <Checkbox label='Normal checkbox' />
-            <Checkbox disabled label='Disabled checkbox' />
-          </div>
-        </div>
-        <div className='space-y-2'>
-          <label className='text-sm font-medium'>
-            Manual Label Wrapping (for complex layouts)
-          </label>
-          <div className='flex flex-col gap-2'>
-            <label className='flex items-center gap-2'>
-              <Checkbox />
-              <span>
-                Manual label with <strong>HTML formatting</strong>
-              </span>
-            </label>
-            <label className='flex items-center gap-2'>
-              <Checkbox />
-              <div>
-                <div className='text-sm font-medium'>Primary text</div>
-                <div className='text-xs text-ui-text-secondary'>
-                  Secondary description
-                </div>
-              </div>
-            </label>
           </div>
         </div>
       </div>
@@ -102,6 +79,146 @@ export const AllVariants: Story = {
   ),
   parameters: {
     controls: { disable: true },
+  },
+};
+
+export const Sizes: Story = {
+  render: () => (
+    <StoryWrapper>
+      <div className='max-w-md space-y-4'>
+        <div>
+          <h3 className='text-sm font-medium text-ui-text-primary mb-3'>
+            Sizes
+          </h3>
+          <div className='space-y-3'>
+            <Checkbox size='sm' label='Small checkbox' />
+            <Checkbox size='md' label='Medium checkbox' />
+            <Checkbox size='lg' label='Large checkbox' />
+          </div>
+        </div>
+      </div>
+    </StoryWrapper>
+  ),
+  parameters: {
+    controls: { disable: true },
+  },
+};
+
+export const States: Story = {
+  render: () => (
+    <StoryWrapper>
+      <div className='max-w-md space-y-4'>
+        <div>
+          <h3 className='text-sm font-medium text-ui-text-primary mb-3'>
+            States
+          </h3>
+          <div className='space-y-3'>
+            <Checkbox label='Normal checkbox' />
+            <Checkbox checked label='Checked checkbox' />
+            <Checkbox disabled label='Disabled checkbox' />
+            <Checkbox disabled checked label='Disabled checked checkbox' />
+          </div>
+        </div>
+      </div>
+    </StoryWrapper>
+  ),
+  parameters: {
+    controls: { disable: true },
+  },
+};
+
+export const WithFormField: Story = {
+  render: () => (
+    <StoryWrapper>
+      <div className='max-w-md space-y-6'>
+        <div>
+          <h3 className='text-sm font-medium text-ui-text-primary mb-3'>
+            With FormField Wrapper
+          </h3>
+          <p className='text-xs text-ui-text-secondary mb-4'>
+            Use FormField wrapper for error handling and help text.
+          </p>
+        </div>
+
+        <div className='space-y-4'>
+          <FormField helpText='Check this box to receive email notifications'>
+            <Checkbox label='Email notifications' />
+          </FormField>
+
+          <FormField error='You must accept the terms to continue'>
+            <Checkbox label='I agree to the terms and conditions' />
+          </FormField>
+
+          <FormField required helpText='This is required for account creation'>
+            <Checkbox label='I confirm I am over 18 years old' />
+          </FormField>
+        </div>
+      </div>
+    </StoryWrapper>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'Examples showing Checkbox used with FormField wrapper. FormField handles error messages, help text, and required field indicators.',
+      },
+    },
+  },
+};
+
+export const CustomLabels: Story = {
+  render: () => (
+    <StoryWrapper>
+      <div className='max-w-md space-y-4'>
+        <div>
+          <h3 className='text-sm font-medium text-ui-text-primary mb-3'>
+            Custom Label Layouts
+          </h3>
+          <p className='text-xs text-ui-text-secondary mb-4'>
+            For complex labels, use manual label wrapping instead of the label
+            prop.
+          </p>
+        </div>
+
+        <div className='space-y-4'>
+          <label className='flex items-start gap-3 cursor-pointer'>
+            <Checkbox className='mt-1' />
+            <div>
+              <div className='text-sm font-medium text-ui-text-primary'>
+                Marketing emails
+              </div>
+              <div className='text-xs text-ui-text-secondary'>
+                Receive updates about new features and promotions
+              </div>
+            </div>
+          </label>
+
+          <label className='flex items-center gap-3 cursor-pointer'>
+            <Checkbox />
+            <span className='text-sm text-ui-text-primary'>
+              I accept the{' '}
+              <a href='#' className='text-ui-primary underline'>
+                Terms of Service
+              </a>{' '}
+              and{' '}
+              <a href='#' className='text-ui-primary underline'>
+                Privacy Policy
+              </a>
+            </span>
+          </label>
+        </div>
+      </div>
+    </StoryWrapper>
+  ),
+  parameters: {
+    controls: { disable: true },
+    docs: {
+      description: {
+        story:
+          'For complex labels with HTML formatting or multiple lines, use manual label wrapping instead of the built-in label prop.',
+      },
+    },
   },
 };
 

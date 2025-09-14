@@ -4,6 +4,7 @@ export interface RadioProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   size?: 'sm' | 'md' | 'lg';
   variant?: 'default' | 'error' | 'success';
+  label?: string;
 }
 
 export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
@@ -13,6 +14,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       variant = 'default',
       className = '',
       disabled = false,
+      label,
       ...props
     },
     ref
@@ -35,17 +37,35 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
         'border-ui-success accent-ui-success focus:border-ui-success focus:ring-ui-success/30',
     };
 
+    const radioId = React.useId();
     const classes = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
 
-    return (
+    const radio = (
       <input
         ref={ref}
+        id={radioId}
         type='radio'
         disabled={disabled}
         className={classes}
         {...props}
       />
     );
+
+    if (label) {
+      return (
+        <label
+          htmlFor={radioId}
+          className='flex items-center space-x-2 cursor-pointer'
+        >
+          {radio}
+          <span className='text-sm text-ui-text-primary select-none'>
+            {label}
+          </span>
+        </label>
+      );
+    }
+
+    return radio;
   }
 );
 
