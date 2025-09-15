@@ -70,6 +70,25 @@ const FORMS = {
       success: 'border-ui-success focus:border-ui-success focus:ring-ui-success/30'
     },
     sampleContent: 'Radio option'
+  },
+  Switch: {
+    folder: 'forms',
+    htmlElement: 'button',
+    defaultVariant: 'default',
+    variants: ['default', 'success', 'warning', 'error'],
+    baseClasses: 'relative inline-flex shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed',
+    sizes: {
+      sm: 'h-4 w-7',
+      md: 'h-5 w-9',
+      lg: 'h-6 w-11'
+    },
+    variantClasses: {
+      default: 'bg-ui-border focus:ring-ui-primary/30 data-[checked=true]:bg-ui-primary',
+      success: 'bg-ui-border focus:ring-ui-success/30 data-[checked=true]:bg-ui-success',
+      warning: 'bg-ui-border focus:ring-ui-warning/30 data-[checked=true]:bg-ui-warning',
+      error: 'bg-ui-border focus:ring-ui-danger/30 data-[checked=true]:bg-ui-danger'
+    },
+    sampleContent: 'Toggle switch'
   }
 };
 

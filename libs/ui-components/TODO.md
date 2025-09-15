@@ -48,8 +48,8 @@
 - [x] Radio button component
 - [x] Alert component (info, success, warning, error)
 - [x] Card component
-- [ ] Progress bar component
-- [ ] Switch/Toggle component
+- [x] Progress bar component
+- [x] Switch/Toggle component
 
 ### 🟡 Layout Components (3-4 hours each)
 
@@ -141,6 +141,16 @@
 - ✅ **Enhanced accessibility**: Proper aria-describedby, aria-invalid, and aria-required attribute handling across all form components
 - ✅ **TypeScript improvements**: Clean interfaces with proper type safety for composition patterns
 
+### Progress & Switch Components Implementation
+
+- ✅ **Progress bar component**: Functional progress indicator with value-based width calculation and variant support
+- ✅ **Smart percentage positioning**: Text automatically positions above bar for sm/md sizes, overlays for lg size
+- ✅ **Dynamic text color switching**: Progress text changes to white when progress bar fills past 50% (center point)
+- ✅ **Switch toggle component**: Complete toggle functionality with controlled state and sliding thumb animation
+- ✅ **Enhanced Storybook integration**: Fixed React hooks warnings and import dependency issues
+- ✅ **Grid-based story layouts**: Improved visual organization in component demonstrations
+- ✅ **Comprehensive accessibility**: Proper ARIA attributes and keyboard navigation support
+
 ### Previous Major Achievements
 
 #### Layout Components Refinement & System Cleanup
@@ -184,11 +194,11 @@
 
 ### Current Status
 
-**📦 Component Library (16 components)**
+**📦 Component Library (18 components)**
 
 - ✅ **Primitives** (6): Button, Badge, Avatar, Link, Spinner, Icon
-- ✅ **Forms** (5): Input, Textarea, Checkbox, Radio, FormField
-- ✅ **Feedback** (1): Alert
+- ✅ **Forms** (6): Input, Textarea, Checkbox, Radio, FormField, Switch
+- ✅ **Feedback** (2): Alert, Progress
 - ✅ **Layout** (4): Card, Stack, Container, Grid
 
 **🛠 Infrastructure**

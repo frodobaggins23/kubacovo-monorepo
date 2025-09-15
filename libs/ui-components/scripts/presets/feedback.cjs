@@ -17,6 +17,25 @@ const FEEDBACK = {
       error: 'border-ui-danger/20 bg-ui-danger/10 text-ui-danger [&>svg]:text-ui-danger'
     },
     sampleContent: 'This is an alert message'
+  },
+  Progress: {
+    folder: 'feedback',
+    htmlElement: 'div',
+    defaultVariant: 'default',
+    variants: ['default', 'success', 'warning', 'error'],
+    baseClasses: 'w-full bg-ui-border rounded-full overflow-hidden',
+    sizes: {
+      sm: 'h-1',
+      md: 'h-2',
+      lg: 'h-3'
+    },
+    variantClasses: {
+      default: '[&>div]:bg-ui-primary',
+      success: '[&>div]:bg-ui-success',
+      warning: '[&>div]:bg-ui-warning',
+      error: '[&>div]:bg-ui-danger'
+    },
+    sampleContent: '75% complete'
   }
 };
 
