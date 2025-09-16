@@ -10,7 +10,8 @@
     "files:staged": "git diff --cached --name-only --diff-filter=ACMR | grep -E '\\.(js|jsx|ts|tsx|json|md|css|scss)$'",
     "format:staged": "npm run files:staged --silent| xargs -r prettier --write --list-different",
     "ts:staged": "NX_TUI=false npx nx affected --target=typecheck --base=HEAD --verbose --nx-bail=false",
-    "postinstall": "node scripts/install-git-hooks.js"
+    "postinstall": "node scripts/install-git-hooks.js",
+    "design-system:ask": "claude -r 01e9adc0-7c0b-4db0-a078-edb8ca35ce35 -p"
   },
   "private": true,
   "dependencies": {
