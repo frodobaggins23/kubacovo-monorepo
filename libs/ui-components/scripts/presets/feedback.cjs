@@ -36,6 +36,29 @@ const FEEDBACK = {
       error: '[&>div]:bg-ui-danger'
     },
     sampleContent: '75% complete'
+  },
+  Skeleton: {
+    folder: 'feedback',
+    htmlElement: 'div',
+    defaultVariant: 'card',
+    variants: ['page', 'list', 'table', 'card', 'form', 'profile', 'article', 'dashboard'],
+    baseClasses: 'animate-pulse',
+    sizes: {
+      sm: 'max-w-sm',
+      md: 'max-w-md',
+      lg: 'max-w-lg'
+    },
+    variantClasses: {
+      page: '',
+      list: '',
+      table: '',
+      card: '',
+      form: '',
+      profile: '',
+      article: '',
+      dashboard: ''
+    },
+    sampleContent: ''
   }
 };
 

@@ -11,6 +11,7 @@ export * from './lib/forms/Textarea';
 export * from './lib/forms/FormField';
 export * from './lib/feedback/Alert';
 export * from './lib/feedback/Progress';
+export * from './lib/feedback/Skeleton';
 export * from './lib/layout/Card';
 export * from './lib/forms/Checkbox';
 export * from './lib/forms/Radio';
